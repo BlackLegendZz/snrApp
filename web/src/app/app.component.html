@@ -1,0 +1,26 @@
+<div class="container max-w-fit mx-auto px-4">
+  <h2 class="text-4xl font-thin pb-1 pt-2 max-w-fit">
+    Calculate your Signal-to-Noise ratio!
+  </h2>
+  <p class="max-w-2xl mb-7">
+    Lorem ipsum dolor sit amet bla blu idk what the actualy text is but tbh I
+    dont give a shit either LMAO. So I guess you just have to read this for now.
+    Sucks to be you.
+  </p>
+  <div class="flex">
+    <form>
+      <app-frame-box [frame]="fbTypes.LightFrame" />
+      <app-frame-box [frame]="fbTypes.DarkFrame" />
+      <app-frame-box [frame]="fbTypes.BiasFrame" />
+      <app-frame-box [frame]="fbTypes.Camera" />
+      <app-frame-box [frame]="fbTypes.SNR" />
+      <button
+        type="button"
+        class="bg-btn-active-light hover:bg-btn-hover-light active:bg-opacity-80 active:border-gray-600 text-btn-active-text-light rounded py-1 px-[10px]"
+      >
+        Calculate
+      </button>
+    </form>
+    <app-result-box title="Result" />
+  </div>
+</div>

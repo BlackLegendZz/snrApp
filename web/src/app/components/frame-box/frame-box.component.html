@@ -1,0 +1,71 @@
+<div class="bg-light-2 rounded-lg p-2 w-[380px] mb-3">
+  <!--Upload button-->
+  <div *ngIf="frame !== frameType.SNR" class="flex mb-3">
+    <h4 class="text-2xl grow">{{ frame }}</h4>
+    <button
+      *ngIf="frame !== frameType.Camera"
+      type="button"
+      class="bg-btn-active-light hover:bg-btn-hover-light active:bg-opacity-80 active:border-gray-600 text-btn-active-text-light rounded py-1 px-[10px]"
+    >
+      Upload
+    </button>
+  </div>
+
+  <!--Filename & Icon-->
+  <div *ngIf="frame !== frameType.SNR && frame !== frameType.Camera">
+    <span>Dateiname</span>
+    <span>icon</span>
+  </div>
+
+  <!--Dark or Bias Frame-->
+  <app-input-field
+    *ngIf="
+      frame === frameType.LightFrame ||
+      frame === frameType.BiasFrame ||
+      frame === frameType.DarkFrame
+    "
+    class="flex items-center mt-2"
+    title="Background"
+    placeholder="3000"
+  />
+
+  <!--Light Frame-->
+  <app-input-field
+    *ngIf="frame === frameType.LightFrame"
+    class="flex items-center mt-2"
+    title="Target"
+    placeholder="3000"
+  />
+
+  <!--Camera-->
+  <div *ngIf="frame === frameType.Camera">
+    <app-input-field
+      class="flex items-center mt-2"
+      title="Read Noise"
+      placeholder="1.0"
+    />
+    <app-input-field
+      class="flex items-center mt-2"
+      title="Gain (e/ADU)"
+      placeholder="1.0"
+    />
+    <app-input-field
+      class="flex items-center mt-2"
+      title="Exposure (sec.)"
+      placeholder="120"
+    />
+    <app-input-field
+      class="flex items-center mt-2"
+      title="Total Light Frames"
+      placeholder="100"
+    />
+  </div>
+
+  <!--SNR-->
+  <app-input-field
+    *ngIf="frame === frameType.SNR"
+    class="flex items-center"
+    title="Desired SNR"
+    placeholder="100"
+  />
+</div>
