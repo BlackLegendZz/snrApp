@@ -1,6 +1,6 @@
 import numpy as np
 
-from py_webapp.datatypes import ImageStatistics
+from src.datatypes import ImageStatistics
 
 
 def basicStretch(img: np.ndarray) -> np.ndarray:
