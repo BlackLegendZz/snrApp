@@ -1,7 +1,7 @@
 ########## PYTHON GITIGNORE ##########
 
-py_webapp/static/*
-py_webapp/templates/*
+src/static/*
+src/templates/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
