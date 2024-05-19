@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-input-field',
@@ -13,6 +14,6 @@ export class InputFieldComponent {
   randID: string;
 
   constructor() {
-    this.randID = crypto.randomUUID();
+    this.randID = uuidv4();
   }
 }
