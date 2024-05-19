@@ -1,5 +1,7 @@
 ########## PYTHON GITIGNORE ##########
 
+py_webapp/static
+py_webapp/templates
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -199,7 +201,7 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/.angular/cache
+**/.angular/cache
 .sass-cache/
 /connect.lock
 /coverage
