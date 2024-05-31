@@ -15,10 +15,19 @@ import { EventID, EventService } from './services/event.service';
 })
 export class AppComponent {
   fbTypes = FrameBox;
+  data: { [k: string]: { [k: string]: string } } = {};
 
   constructor(private eventService: EventService) {
-    this.eventService.listen(EventID.UpdateInputValue, (val: any) =>
-      console.log(val)
-    );
+    this.eventService.listen(EventID.UpdateInputValue, (val: any) => {
+      let k_frame = Object.keys(val)[0];
+      let k_measure = Object.keys(val[k_frame])[0];
+
+      if (!Object.keys(this.data).includes(k_frame)) {
+        this.data[k_frame] = val[k_frame];
+      } else {
+        this.data[k_frame][k_measure] = val[k_frame][k_measure];
+      }
+      console.log(this.data);
+    });
   }
 }
