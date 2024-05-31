@@ -3,9 +3,6 @@ module.exports = {
   //darkMode: "selector",
   content: ["./src/**/*.{html,ts}"],
   theme: {
-    screens: {
-      FHD: "1921px",
-    },
     extend: {
       colors: {
         light: "#FFFFFF",
