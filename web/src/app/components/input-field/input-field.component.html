@@ -1,7 +1,9 @@
-<label for="{{ randID }}" class="grow">{{ title }}</label>
-<input
-  type="text"
-  id="{{ randID }}"
-  class="w-max px-3 py-2 bg-transparent border rounded border-black outline-none"
-  placeholder="{{ placeholder }}"
-/>
+<div class="flex items-center mt-2 justify-between">
+  <label for="{{ randID }}" class="pr-3 min-w-fit">{{ title }}</label>
+  <input
+    type="text"
+    id="{{ randID }}"
+    class="w-full max-w-[200px] px-2 pb-1 pt-0.5 bg-transparent border rounded border-black outline-none"
+    placeholder="{{ placeholder }}"
+  />
+</div>
