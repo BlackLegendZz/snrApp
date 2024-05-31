@@ -28,6 +28,7 @@
     "
     title="Background"
     placeholder="3000"
+    [frame]="frame.toString()"
   />
 
   <!--Light Frame-->
@@ -35,14 +36,31 @@
     *ngIf="frame === frameType.LightFrame"
     title="Target"
     placeholder="3000"
+    [frame]="frame.toString()"
   />
 
   <!--Camera-->
   <div *ngIf="frame === frameType.Camera">
-    <app-input-field title="Read Noise" placeholder="1.0" />
-    <app-input-field title="Gain (e/ADU)" placeholder="1.0" />
-    <app-input-field title="Exposure (sec.)" placeholder="120" />
-    <app-input-field title="Total Light Frames" placeholder="100" />
+    <app-input-field
+      title="Read Noise"
+      placeholder="1.0"
+      [frame]="frame.toString()"
+    />
+    <app-input-field
+      title="Gain (e/ADU)"
+      placeholder="1.0"
+      [frame]="frame.toString()"
+    />
+    <app-input-field
+      title="Exposure (sec.)"
+      placeholder="120"
+      [frame]="frame.toString()"
+    />
+    <app-input-field
+      title="Total Light Frames"
+      placeholder="100"
+      [frame]="frame.toString()"
+    />
   </div>
 
   <!--SNR-->
@@ -51,5 +69,6 @@
     class="mt-0"
     title="Desired SNR"
     placeholder="100"
+    [frame]="frame.toString()"
   />
 </div>
