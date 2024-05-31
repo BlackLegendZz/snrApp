@@ -5,6 +5,7 @@ import {
   FrameBox,
 } from './components/frame-box/frame-box.component';
 import { ResultBoxComponent } from './components/result-box/result-box.component';
+import { EventID, EventService } from './services/event.service';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,4 +15,10 @@ import { ResultBoxComponent } from './components/result-box/result-box.component
 })
 export class AppComponent {
   fbTypes = FrameBox;
+
+  constructor(private eventService: EventService) {
+    this.eventService.listen(EventID.UpdateInputValue, (val: any) =>
+      console.log(val)
+    );
+  }
 }
