@@ -1,9 +1,10 @@
 <div class="flex items-center mt-1.5 justify-between">
-  <label for="{{ randID }}" class="pr-3 min-w-fit">{{ title }}</label>
+  <label for="{{ id }}" class="pr-3 min-w-fit">{{ title }}</label>
   <input
     type="text"
-    id="{{ randID }}"
+    id="{{ id }}"
     class="w-full max-w-[200px] px-2 pb-1 pt-0.5 bg-transparent border rounded border-black outline-none"
     placeholder="{{ placeholder }}"
+    (input)="updateInputValue($event)"
   />
 </div>

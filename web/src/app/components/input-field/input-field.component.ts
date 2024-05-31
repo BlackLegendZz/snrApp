@@ -12,15 +12,18 @@ import { EventID, EventService } from '../../services/event.service';
 export class InputFieldComponent {
   @Input({ required: true }) title: string = '';
   @Input({ required: true }) placeholder: string = '';
-  @Input({ required: true }) id: string = '';
+  @Input({ required: true }) frame: string = '';
+  id: string = '';
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService) {
+    this.id = uuidv4();
+  }
 
   validateInput(inp: string) {}
 
   updateInputValue(e: any) {
     this.eventService.emit(EventID.UpdateInputValue, {
-      [this.id]: { [this.title]: e.target.value },
+      [this.frame]: { [this.title]: e.target.value },
     });
   }
 }
