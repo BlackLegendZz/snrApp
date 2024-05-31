@@ -18,6 +18,6 @@ export enum FrameBox {
   styleUrl: './frame-box.component.css',
 })
 export class FrameBoxComponent {
-  @Input() frame = FrameBox.LightFrame;
+  @Input({ required: true }) frame = FrameBox.LightFrame;
   frameType = FrameBox;
 }
