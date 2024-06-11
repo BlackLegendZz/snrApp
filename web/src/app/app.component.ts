@@ -6,18 +6,29 @@ import {
 } from './components/frame-box/frame-box.component';
 import { ResultBoxComponent } from './components/result-box/result-box.component';
 import { EventID, EventService } from './services/event.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FrameBoxComponent, ResultBoxComponent],
+  imports: [RouterOutlet, FrameBoxComponent, ResultBoxComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  fbTypes = FrameBox;
+  frames = [
+    FrameBox.LightFrame,
+    FrameBox.DarkFrame,
+    FrameBox.BiasFrame,
+    FrameBox.Camera,
+    FrameBox.SNR,
+  ];
   data: { [k: string]: { [k: string]: string } } = {};
 
   constructor(private eventService: EventService) {
+    this.frames.forEach((element) => {
+      this.data[element.toString()] = {};
+    });
+
     this.eventService.listen(EventID.UpdateInputValue, (val: any) => {
       let k_frame = Object.keys(val)[0];
       let k_measure = Object.keys(val[k_frame])[0];
@@ -27,7 +38,7 @@ export class AppComponent {
       } else {
         this.data[k_frame][k_measure] = val[k_frame][k_measure];
       }
-      console.log(this.data);
+      //send data
     });
   }
 }

@@ -1,4 +1,4 @@
-<div class="container md:max-w-[95%] lg:max-w-[90%] mx-auto bg-green-300">
+<div class="container md:max-w-[95%] lg:max-w-[90%] mx-auto">
   <h2 class="text-4xl font-thin py-2 max-w-fit">
     Calculate your Signal-to-Noise ratio!
   </h2>
@@ -7,14 +7,12 @@
     dolor sit amet bla blu idk what the actualy text is Lorem ipsum dolor sit
     amet bla blu idk what the actualy text is
   </p>
-  <div class="pt-3 md:flex">
-    <div class="pb-3 md:pb-0 grid grid-cols-1 gap-y-1">
-      <app-frame-box [frame]="fbTypes.LightFrame" />
-      <app-frame-box [frame]="fbTypes.DarkFrame" />
-      <app-frame-box [frame]="fbTypes.BiasFrame" />
-      <app-frame-box [frame]="fbTypes.Camera" />
-      <app-frame-box [frame]="fbTypes.SNR" />
+  <div class="pt-3 md:flex grow">
+    <div class="pb-3 md:pb-0 min-w-fit">
+      <app-frame-box [frame]="f" *ngFor="let f of frames" />
     </div>
-    <app-result-box title="Result" class="md:pl-3 grow" />
+    <div class="md:pl-3 grow">
+      <app-result-box title="Result" class="grow bg-red-500" />
+    </div>
   </div>
 </div>
