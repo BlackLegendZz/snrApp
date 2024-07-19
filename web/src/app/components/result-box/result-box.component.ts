@@ -1,13 +1,5 @@
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import * as d3 from 'd3';
-
+import { Component, Input, OnInit } from '@angular/core';
+import * as Plotly from 'plotly.js-dist';
 @Component({
   selector: 'app-result-box',
   standalone: true,
@@ -17,77 +9,45 @@ import * as d3 from 'd3';
 })
 export class ResultBoxComponent implements OnInit {
   @Input() title = '';
-  private svg: any;
-
-  //Define the component with tag "chart" as the container
-  @ViewChild('chart', { static: true })
-  private chartContainer?: ElementRef;
-
-  // Declare the chart dimensions and margins.
-  private height = 400;
-  private margin: { top: number; bottom: number; left: number; right: number } =
-    { top: 10, bottom: 30, left: 30, right: 0 };
-  private scale: {
-    x: d3.ScaleTime<number, number, never>;
-    y: d3.ScaleLinear<number, number, never>;
-  } = { x: d3.scaleUtc(), y: d3.scaleLinear() };
-  private axis: { x: any; y: any } = { x: null, y: null };
 
   ngOnInit(): void {
-    this.createSvg();
-    this.createPlot();
+    this.drawPlot();
   }
 
-  //Update the xScale when the window size changes
-  @HostListener('window:resize', ['$event'])
-  onWindowResize(event: any): void {
-    console.log('sdfds');
-    this.scale.x.range([this.margin.left, this.innerWidth()]);
-    this.axis.x
-      .transition()
-      .ease(d3.easeLinear)
-      .duration(0)
-      .attr('transform', `translate(0,${this.height - this.margin.bottom})`)
-      .call(d3.axisBottom(this.scale.x));
-  }
+  private drawPlot(): void {
+    let trace1: Plotly.Data = {
+      x: [1, 2, 3, 4],
+      y: [10, 15, 13, 17],
+      mode: 'markers',
+      type: 'scatter',
+    };
 
-  //Calculate with of the graph by subtracting the with of the container by the margins.
-  private innerWidth(): number {
-    return (
-      this.chartContainer?.nativeElement.clientWidth -
-      this.margin.left -
-      this.margin.right
-    );
-  }
+    let trace2: Plotly.Data = {
+      x: [2, 3, 4, 5],
+      y: [16, 5, 11, 9],
+      mode: 'lines',
+      type: 'scatter',
+    };
 
-  private createSvg(): void {
-    // Create the SVG container.
-    this.svg = d3
-      .select(this.chartContainer?.nativeElement)
-      .attr('height', this.height);
-  }
+    let trace3: Plotly.Data = {
+      x: [1, 2, 3, 4],
+      y: [12, 9, 15, 12],
+      mode: 'lines+markers',
+      type: 'scatter',
+    };
 
-  private createPlot(): void {
-    // Declare the x (horizontal position) scale.
-    this.scale.x
-      .domain([new Date('2023-01-01'), new Date('2024-01-01')])
-      .range([this.margin.left, this.innerWidth()]);
+    let data: Plotly.Data[] = [trace1, trace2, trace3];
 
-    // Declare the y (vertical position) scale.
-    this.scale.y
-      .domain([0, 100])
-      .range([this.height - this.margin.bottom, this.margin.top]);
+    let layout: Partial<Plotly.Layout> = {
+      height: 300,
+      margin: {
+        l: 20,
+        r: 10,
+        b: 20,
+        t: 10,
+      },
+    };
 
-    // Add the x-axis.
-    this.axis.x = this.svg
-      .append('g')
-      .attr('transform', `translate(0,${this.height - this.margin.bottom})`)
-      .call(d3.axisBottom(this.scale.x));
-
-    // Add the y-axis.
-    this.axis.y = this.svg
-      .append('g')
-      .attr('transform', `translate(${this.margin.left},0)`)
-      .call(d3.axisLeft(this.scale.y));
+    Plotly.newPlot('plot', data, layout, { responsive: true });
   }
 }
