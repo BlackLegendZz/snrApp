@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "@types/plotly.js": "^2.33.1",
+    "plotly.js-dist": "^2.34.0"
   }
 }
