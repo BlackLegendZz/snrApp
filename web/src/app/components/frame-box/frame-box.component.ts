@@ -7,7 +7,6 @@ export enum FrameBox {
   DarkFrame = 'Dark Frame',
   BiasFrame = 'Bias Frame',
   Camera = 'Camera',
-  SNR = 'SNR',
 }
 
 @Component({
@@ -17,7 +16,4 @@ export enum FrameBox {
   templateUrl: './frame-box.component.html',
   styleUrl: './frame-box.component.css',
 })
-export class FrameBoxComponent {
-  @Input({ required: true }) frame = FrameBox.LightFrame;
-  frameType = FrameBox;
-}
+export class FrameBoxComponent {}

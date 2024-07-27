@@ -20,7 +20,6 @@ export class AppComponent {
     FrameBox.DarkFrame,
     FrameBox.BiasFrame,
     FrameBox.Camera,
-    FrameBox.SNR,
   ];
   data: { [k: string]: { [k: string]: string } } = {};
 

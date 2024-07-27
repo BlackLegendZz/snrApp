@@ -9,9 +9,11 @@
   </p>
   <div class="pt-3 md:flex grow">
     <div class="pb-3 md:pb-0 min-w-fit">
-      <app-frame-box [frame]="f" *ngFor="let f of frames" />
+      <app-frame-box />
     </div>
     <div class="md:pl-3 grow">
+      <app-result-box title="Result" />
+      <app-result-box title="Result" />
       <app-result-box title="Result" />
     </div>
   </div>

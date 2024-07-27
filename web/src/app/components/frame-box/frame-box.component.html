@@ -1,76 +1,39 @@
+<!--Light Frame-->
 <div class="bg-light-2 rounded-lg p-2 mb-1 min-w-[250px] md:w-[355px]">
-  <!--Upload button-->
-  <div *ngIf="frame !== frameType.SNR" class="flex mb-3">
-    <h4 class="text-2xl grow">{{ frame }}</h4>
-    <!--
-    <button
-      *ngIf="frame !== frameType.Camera"
-      type="button"
-      class="bg-btn-active-light hover:bg-btn-hover-light active:bg-opacity-80 active:border-gray-600 text-btn-active-text-light rounded py-1 px-[10px]"
-    >
-      Upload
-    </button>
-    -->
+  <div class="flex mb-3">
+    <h4 class="text-2xl grow">Light Frame</h4>
   </div>
+  <app-input-field title="Background" placeholder="3000" frame="Light Frame" />
+  <app-input-field title="Target" placeholder="3000" frame="Light Frame" />
+</div>
 
-  <!--Filename & Icon-->
-  <!--
-  <div *ngIf="frame !== frameType.SNR && frame !== frameType.Camera">
-    <span>Dateiname</span>
-    <span>icon</span>
+<!--Dark Frame-->
+<div class="bg-light-2 rounded-lg p-2 mb-1 min-w-[250px] md:w-[355px]">
+  <div class="flex mb-3">
+    <h4 class="text-2xl grow">Dark Frame</h4>
   </div>
-  -->
+  <app-input-field title="Background" placeholder="3000" frame="Dark Frame" />
+</div>
 
-  <!--Dark or Bias Frame-->
-  <app-input-field
-    *ngIf="
-      frame === frameType.LightFrame ||
-      frame === frameType.BiasFrame ||
-      frame === frameType.DarkFrame
-    "
-    title="Background"
-    placeholder="3000"
-    [frame]="frame.toString()"
-  />
-
-  <!--Light Frame-->
-  <app-input-field
-    *ngIf="frame === frameType.LightFrame"
-    title="Target"
-    placeholder="3000"
-    [frame]="frame.toString()"
-  />
-
-  <!--Camera-->
-  <div *ngIf="frame === frameType.Camera">
-    <app-input-field
-      title="Read Noise"
-      placeholder="1.0"
-      [frame]="frame.toString()"
-    />
-    <app-input-field
-      title="Gain (e/ADU)"
-      placeholder="1.0"
-      [frame]="frame.toString()"
-    />
-    <app-input-field
-      title="Exposure (sec.)"
-      placeholder="120"
-      [frame]="frame.toString()"
-    />
-    <app-input-field
-      title="Total Light Frames"
-      placeholder="100"
-      [frame]="frame.toString()"
-    />
+<!--Light Frame-->
+<div class="bg-light-2 rounded-lg p-2 mb-1 min-w-[250px] md:w-[355px]">
+  <div class="flex mb-3">
+    <h4 class="text-2xl grow">Bias Frame</h4>
   </div>
+  <app-input-field title="Background" placeholder="3000" frame="Bias Frame" />
+</div>
 
-  <!--SNR-->
+<!--Camera-->
+<div class="bg-light-2 rounded-lg p-2 mb-1 min-w-[250px] md:w-[355px]">
+  <div class="flex mb-3">
+    <h4 class="text-2xl grow">Camera</h4>
+  </div>
+  <app-input-field title="Read Noise" placeholder="1.0" frame="Camera" />
+  <app-input-field title="Gain (e/ADU)" placeholder="1.0" frame="Camera" />
+  <app-input-field title="Exposure (sec.)" placeholder="120" frame="Camera" />
   <app-input-field
-    *ngIf="frame === frameType.SNR"
-    class="mt-0"
-    title="Desired SNR"
+    title="Total Light Frames"
     placeholder="100"
-    [frame]="frame.toString()"
+    frame="Camera"
   />
 </div>
