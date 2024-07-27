@@ -15,29 +15,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  frames = [
-    FrameBox.LightFrame,
-    FrameBox.DarkFrame,
-    FrameBox.BiasFrame,
-    FrameBox.Camera,
-  ];
-  data: { [k: string]: { [k: string]: string } } = {};
-
-  constructor(private eventService: EventService) {
-    this.frames.forEach((element) => {
-      this.data[element.toString()] = {};
-    });
-
-    this.eventService.listen(EventID.UpdateInputValue, (val: any) => {
-      let k_frame = Object.keys(val)[0];
-      let k_measure = Object.keys(val[k_frame])[0];
-
-      if (!Object.keys(this.data).includes(k_frame)) {
-        this.data[k_frame] = val[k_frame];
-      } else {
-        this.data[k_frame][k_measure] = val[k_frame][k_measure];
-      }
-      //send data
-    });
-  }
+  constructor() {}
 }
