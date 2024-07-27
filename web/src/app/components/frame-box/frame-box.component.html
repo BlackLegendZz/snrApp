@@ -1,39 +1,80 @@
 <!--Light Frame-->
-<div class="bg-light-2 rounded-lg p-2 mb-1 min-w-[250px] md:w-[355px]">
+<div class="bg-light-2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
   <div class="flex mb-3">
     <h4 class="text-2xl grow">Light Frame</h4>
   </div>
-  <app-input-field title="Background" placeholder="3000" frame="Light Frame" />
-  <app-input-field title="Target" placeholder="3000" frame="Light Frame" />
+  <app-input-field
+    title="Background"
+    placeholder="3000"
+    frame="Light Frame"
+    (onValueChange)="data['Light Frame']['Background'] = $event"
+  />
+  <app-input-field
+    title="Target"
+    placeholder="3000"
+    frame="Light Frame"
+    (onValueChange)="data['Light Frame']['Target'] = $event"
+  />
 </div>
 
 <!--Dark Frame-->
-<div class="bg-light-2 rounded-lg p-2 mb-1 min-w-[250px] md:w-[355px]">
+<div class="bg-light-2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
   <div class="flex mb-3">
     <h4 class="text-2xl grow">Dark Frame</h4>
   </div>
-  <app-input-field title="Background" placeholder="3000" frame="Dark Frame" />
+  <app-input-field
+    title="Background"
+    placeholder="3000"
+    frame="Dark Frame"
+    (onValueChange)="data['Dark Frame']['Background'] = $event"
+  />
 </div>
 
-<!--Light Frame-->
-<div class="bg-light-2 rounded-lg p-2 mb-1 min-w-[250px] md:w-[355px]">
+<!--Bias Frame-->
+<div class="bg-light-2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
   <div class="flex mb-3">
     <h4 class="text-2xl grow">Bias Frame</h4>
   </div>
-  <app-input-field title="Background" placeholder="3000" frame="Bias Frame" />
+  <app-input-field
+    title="Background"
+    placeholder="3000"
+    frame="Bias Frame"
+    (onValueChange)="data['Bias Frame']['Background'] = $event"
+  />
 </div>
 
 <!--Camera-->
-<div class="bg-light-2 rounded-lg p-2 mb-1 min-w-[250px] md:w-[355px]">
+<div class="bg-light-2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
   <div class="flex mb-3">
     <h4 class="text-2xl grow">Camera</h4>
   </div>
-  <app-input-field title="Read Noise" placeholder="1.0" frame="Camera" />
-  <app-input-field title="Gain (e/ADU)" placeholder="1.0" frame="Camera" />
-  <app-input-field title="Exposure (sec.)" placeholder="120" frame="Camera" />
+  <app-input-field
+    title="Read Noise"
+    placeholder="1.0"
+    frame="Camera"
+    (onValueChange)="data['Camera']['Read Noise'] = $event"
+  />
+  <app-input-field
+    title="Gain (e/ADU)"
+    placeholder="1.0"
+    frame="Camera"
+    (onValueChange)="data['Camera']['Gain'] = $event"
+  />
+  <app-input-field
+    title="Exposure (sec.)"
+    placeholder="120"
+    frame="Camera"
+    (onValueChange)="data['Camera']['Exposure'] = $event"
+  />
   <app-input-field
     title="Total Light Frames"
     placeholder="100"
     frame="Camera"
   />
 </div>
+<button
+  class="px-2 py-2 md:py-1 rounded text-white bg-[#76a5d0] active:bg-[#6692bb] shadow-md w-full md:w-fit md:float-right"
+  (click)="sendData()"
+>
+  Calculate
+</button>
