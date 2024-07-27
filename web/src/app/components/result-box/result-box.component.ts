@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { v4 as uuidv4 } from 'uuid';
-import * as Plotly from 'plotly.js-dist';
+import * as Plotly from 'plotly.js-basic-dist-min';
 @Component({
   selector: 'app-result-box',
   standalone: true,

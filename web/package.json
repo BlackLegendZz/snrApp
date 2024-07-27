@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "bundle-report": "ng build --configuration production --source-map && source-map-explorer dist/snr-app/browser/*.js"
   },
   "private": true,
   "dependencies": {
@@ -18,7 +19,7 @@
     "@angular/platform-browser": "^17.2.0",
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
-    "plotly.js": "^2.34.0",
+    "plotly.js-basic-dist-min": "^2.34.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "uuid": "^9.0.1",
@@ -29,7 +30,7 @@
     "@angular/cli": "^17.2.3",
     "@angular/compiler-cli": "^17.2.0",
     "@types/jasmine": "~5.1.0",
-    "@types/plotly.js": "^2.33.1",
+    "@types/plotly.js-basic-dist-min": "^2.12.4",
     "@types/uuid": "^9.0.8",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",

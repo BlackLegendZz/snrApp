@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": ["plotly.js-basic-dist-min"],
             "outputPath": "dist/snr-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
