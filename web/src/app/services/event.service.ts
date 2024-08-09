@@ -21,5 +21,5 @@ export class EventService {
 }
 
 export enum EventID {
-  UpdateInputValue,
+  DrawGraph,
 }
