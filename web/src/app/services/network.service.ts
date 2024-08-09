@@ -9,7 +9,7 @@ import {
   providedIn: 'root',
 })
 export class NetworkService {
-  hostUrl: String = document.location.origin;
+  hostUrl: String = 'http://127.0.0.1:5000'; //document.location.origin;
   constructor(private httpClient: HttpClient) {}
 
   private provideDefaultHeader(): any {
@@ -24,10 +24,10 @@ export class NetworkService {
     return throwError(() => error.error);
   }
 
-  sendData(data: { [k: string]: { [k: string]: string } }) {
+  sendData(data: { [k: string]: { [k: string]: Number } }) {
     return this.httpClient
       .post(
-        this.hostUrl + '/api/yappyapp',
+        this.hostUrl + '/api/calculate',
         JSON.stringify(data),
         this.provideDefaultHeader()
       )
