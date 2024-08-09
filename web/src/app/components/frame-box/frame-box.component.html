@@ -4,13 +4,13 @@
     <h4 class="text-2xl grow">Light Frame</h4>
   </div>
   <app-input-field
-    title="Background"
+    title="Skyglow"
     placeholder="3000"
     frame="Light Frame"
     (onValueChange)="data['Light Frame']['Background'] = $event"
   />
   <app-input-field
-    title="Target"
+    title="Target Brightness"
     placeholder="3000"
     frame="Light Frame"
     (onValueChange)="data['Light Frame']['Target'] = $event"
@@ -70,6 +70,7 @@
     title="Total Light Frames"
     placeholder="100"
     frame="Camera"
+    (onValueChange)="data['Camera']['Frames'] = $event"
   />
 </div>
 <button
