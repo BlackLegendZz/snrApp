@@ -1,38 +1,47 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as Plotly from 'plotly.js-basic-dist-min';
+import { EventID, EventService } from '../../services/event.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-result-box',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './result-box.component.html',
   styleUrl: './result-box.component.css',
 })
-export class ResultBoxComponent implements OnInit {
+export class ResultBoxComponent {
   layout: Partial<Plotly.Layout> = {
     paper_bgcolor: '#cbd5e1',
     plot_bgcolor: '#cbd5e1',
-    //height: 350,
     margin: {
-      l: 20,
+      l: 50,
       r: 10,
       b: 20,
       t: 10,
     },
+    modebar: {
+      orientation: 'h',
+    },
   };
-  ngOnInit(): void {
-    this.drawPlot('Result_plot');
-    this.drawPlot('Stacking_plot');
-    this.drawPlot('Skyglow_plot');
+  resultSNR: number = 0;
+  constructor(private eventService: EventService) {
+    eventService.listen(EventID.DrawGraph, (data: any) => this.drawPlots(data));
   }
 
-  private drawPlot(plotID: string): void {
-    let data: Plotly.Data = {
-      x: [1, 2, 3, 4],
-      y: [10, 15, 13, 17],
-      mode: 'lines',
+  private drawPlots(data: any): void {
+    this.resultSNR = data['snr'];
+    this.drawPlot(data['stacking effect'], 'Stacking_plot');
+    this.drawPlot(data['skyglow effect'], 'Skyglow_plot');
+  }
+  private drawPlot(values: number[][], plotID: string): void {
+    let plotData: Plotly.Data = {
+      x: values[1],
+      y: values[0],
       type: 'scatter',
     };
-
-    Plotly.newPlot(plotID, [data], this.layout, { responsive: true });
+    Plotly.newPlot(plotID, [plotData], this.layout, {
+      responsive: true,
+      displayModeBar: false,
+    });
   }
 }
