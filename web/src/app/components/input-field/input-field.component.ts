@@ -13,7 +13,7 @@ export class InputFieldComponent {
   @Input({ required: true }) title: string = '';
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) frame: string = '';
-  @Output() onValueChange = new EventEmitter<string>();
+  @Output() onValueChange = new EventEmitter<Number>();
   id: string = '';
 
   valueForm = new FormBuilder().nonNullable.control('', [
@@ -29,7 +29,9 @@ export class InputFieldComponent {
       this.valueForm.getError('pattern') === null ||
       this.valueForm.getError('pattern') === undefined
     ) {
-      this.onValueChange.emit(e.target.value);
+      this.onValueChange.emit(parseFloat(e.target.value));
+    } else {
+      //TODO: Fehler anzeigen.
     }
   }
 }
