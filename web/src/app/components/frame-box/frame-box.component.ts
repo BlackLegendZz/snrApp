@@ -29,7 +29,7 @@ export class FrameBoxComponent {
         this.eventService.emit(EventID.DrawGraph, response);
       },
       error: (err: any) => {
-        console.log(err);
+        alert(err);
       },
     });
   }
