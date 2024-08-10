@@ -14,7 +14,7 @@ def calculateSNR(data: dict[str, dict[str, int|float]], newExposure: int | None 
         float: The Signal-to-Noise ratio of a light frame
     """
     if data["Light Frame"]["Background"] >= data["Light Frame"]["Target"]:
-        return -1
+        raise Exception("Skyglow cant be higher than the target brightness")
 
     eDarkSignal = (data["Dark Frame"]["Background"] - data["Bias Frame"]["Background"]) * data["Camera"]["Gain"]
     eSkyglowSignal = (data["Light Frame"]["Background"] - data["Dark Frame"]["Background"]) * data["Camera"]["Gain"]
@@ -48,6 +48,9 @@ def calculateStackingEffect(snr: float, frames: int) -> tuple[list[float], list[
 
 
 def calculateSkyglowEffect(data: dict[str, dict[str, int|float]]) -> tuple[list[float], list[int]]:
+    if data["Light Frame"]["Background"] >= data["Light Frame"]["Target"]:
+        raise Exception("Skyglow cant be higher than the target brightness")
+
     percs = list(range(10, 210, 10))
     skyglowSNR = []
 
