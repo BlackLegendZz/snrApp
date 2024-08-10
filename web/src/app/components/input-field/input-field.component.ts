@@ -13,7 +13,11 @@ export class InputFieldComponent {
   @Input({ required: true }) title: string = '';
   @Input({ required: true }) placeholder: string = '';
   @Input({ required: true }) frame: string = '';
-  @Output() onValueChange = new EventEmitter<Number>();
+  @Output() onValueChange = new EventEmitter<{
+    val: number;
+    err: string;
+    status: string;
+  }>();
   id: string = '';
 
   valueForm = new FormBuilder().nonNullable.control('', [
@@ -25,13 +29,30 @@ export class InputFieldComponent {
   }
 
   updateInputValue(e: any) {
+    let err: string = '';
+    let status: string = '';
     if (
       this.valueForm.getError('pattern') === null ||
       this.valueForm.getError('pattern') === undefined
     ) {
-      this.onValueChange.emit(parseFloat(e.target.value));
+      //if this field used to have an error which now got corrected
+      //update the style
+      if (e.target.style.length > 0) {
+        status = 'resolved';
+        e.target.style = '';
+      }
     } else {
-      //TODO: Fehler anzeigen.
+      //if this field already has thrown an error, dont do anything
+      if (e.target.style.length === 0) {
+        e.target.style = 'border-color: red';
+        err = 'Only numbers are allowed.';
+        status = 'error';
+      }
     }
+    this.onValueChange.emit({
+      val: parseFloat(e.target.value),
+      err: err,
+      status: status,
+    });
   }
 }

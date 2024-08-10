@@ -7,13 +7,13 @@
     title="Skyglow"
     placeholder="2072"
     frame="Light Frame"
-    (onValueChange)="data['Light Frame']['Background'] = $event"
+    (onValueChange)="handleValueChange('LFB', $event)"
   />
   <app-input-field
     title="Target Brightness"
     placeholder="2168"
     frame="Light Frame"
-    (onValueChange)="data['Light Frame']['Target'] = $event"
+    (onValueChange)="handleValueChange('LFT', $event)"
   />
 </div>
 
@@ -26,7 +26,7 @@
     title="Background"
     placeholder="2000"
     frame="Dark Frame"
-    (onValueChange)="data['Dark Frame']['Background'] = $event"
+    (onValueChange)="handleValueChange('DFB', $event)"
   />
 </div>
 
@@ -39,7 +39,7 @@
     title="Background"
     placeholder="1996"
     frame="Bias Frame"
-    (onValueChange)="data['Bias Frame']['Background'] = $event"
+    (onValueChange)="handleValueChange('BFB', $event)"
   />
 </div>
 
@@ -52,27 +52,28 @@
     title="Read Noise"
     placeholder="1.0"
     frame="Camera"
-    (onValueChange)="data['Camera']['Read Noise'] = $event"
+    (onValueChange)="handleValueChange('CRN', $event)"
   />
   <app-input-field
     title="Gain (e/ADU)"
     placeholder="100"
     frame="Camera"
-    (onValueChange)="data['Camera']['Gain'] = $event"
+    (onValueChange)="handleValueChange('CGA', $event)"
   />
   <app-input-field
     title="Exposure (sec.)"
     placeholder="120"
     frame="Camera"
-    (onValueChange)="data['Camera']['Exposure'] = $event"
+    (onValueChange)="handleValueChange('CEX', $event)"
   />
   <app-input-field
     title="Total Light Frames"
     placeholder="80"
     frame="Camera"
-    (onValueChange)="data['Camera']['Frames'] = $event"
+    (onValueChange)="handleValueChange('CFR', $event)"
   />
 </div>
+<span class="text-red-500">{{ errorMsg }}</span>
 <button
   class="px-2 py-2 md:py-1 rounded text-white bg-button-normal active:bg-button-clicked shadow-md w-full md:w-fit md:float-right"
   (click)="sendData()"
