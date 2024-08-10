@@ -1,50 +1,50 @@
 <!--Light Frame-->
-<div class="bg-light-2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
+<div class="bg-dark2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
   <div class="flex mb-3">
     <h4 class="text-2xl grow">Light Frame</h4>
   </div>
   <app-input-field
     title="Skyglow"
-    placeholder="3000"
+    placeholder="2072"
     frame="Light Frame"
     (onValueChange)="data['Light Frame']['Background'] = $event"
   />
   <app-input-field
     title="Target Brightness"
-    placeholder="3000"
+    placeholder="2168"
     frame="Light Frame"
     (onValueChange)="data['Light Frame']['Target'] = $event"
   />
 </div>
 
 <!--Dark Frame-->
-<div class="bg-light-2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
+<div class="bg-dark2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
   <div class="flex mb-3">
     <h4 class="text-2xl grow">Dark Frame</h4>
   </div>
   <app-input-field
     title="Background"
-    placeholder="3000"
+    placeholder="2000"
     frame="Dark Frame"
     (onValueChange)="data['Dark Frame']['Background'] = $event"
   />
 </div>
 
 <!--Bias Frame-->
-<div class="bg-light-2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
+<div class="bg-dark2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
   <div class="flex mb-3">
     <h4 class="text-2xl grow">Bias Frame</h4>
   </div>
   <app-input-field
     title="Background"
-    placeholder="3000"
+    placeholder="1996"
     frame="Bias Frame"
     (onValueChange)="data['Bias Frame']['Background'] = $event"
   />
 </div>
 
 <!--Camera-->
-<div class="bg-light-2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
+<div class="bg-dark2 rounded-lg p-2 mb-2 min-w-[250px] md:w-[355px]">
   <div class="flex mb-3">
     <h4 class="text-2xl grow">Camera</h4>
   </div>
@@ -56,7 +56,7 @@
   />
   <app-input-field
     title="Gain (e/ADU)"
-    placeholder="1.0"
+    placeholder="100"
     frame="Camera"
     (onValueChange)="data['Camera']['Gain'] = $event"
   />
@@ -68,13 +68,13 @@
   />
   <app-input-field
     title="Total Light Frames"
-    placeholder="100"
+    placeholder="80"
     frame="Camera"
     (onValueChange)="data['Camera']['Frames'] = $event"
   />
 </div>
 <button
-  class="px-2 py-2 md:py-1 rounded text-white bg-[#76a5d0] active:bg-[#6692bb] shadow-md w-full md:w-fit md:float-right"
+  class="px-2 py-2 md:py-1 rounded text-white bg-button-normal active:bg-button-clicked shadow-md w-full md:w-fit md:float-right"
   (click)="sendData()"
 >
   Calculate

@@ -1,22 +1,22 @@
 <div>
-  <div *ngIf="resultSNR != 0" class="px-2 pb-2 bg-slate-300 rounded-lg mb-2">
-    <h4 class="text-2xl font-normal mb-3">Result</h4>
-    <p>
+  <div *ngIf="resultSNR != 0" class="px-2 pb-2 bg-dark2 rounded-lg mb-2">
+    <h4 class="text-2xl font-normal">Result</h4>
+    <p class="mb-3">
       The SNR of your image is {{ resultSNR }}! In the plot below you will see
       how the SNR increases, based on the amount of subframes you took.
     </p>
+    <div id="Stacking_plot" class="h-[200px] md:h-[300px] mb-4"></div>
   </div>
-  <div id="Stacking_plot" class="h-[200px] md:h-[300px] mb-4"></div>
 
-  <div *ngIf="resultSNR != 0" class="px-2 pb-2 bg-slate-300 rounded-lg mb-2">
-    <h4 class="text-2xl font-normal mb-3 p-2">Skyglow effect</h4>
-    <p>
+  <div *ngIf="resultSNR != 0" class="px-2 pb-2 bg-dark2 rounded-lg mb-2">
+    <h4 class="text-2xl font-normal">Skyglow effect</h4>
+    <p class="mb-3">
       The skyglow effect refers to the impact of light pollution on your
       subframes. Generally speaking, more light pollution deteriorates the SNR
       and thus, the quality of your subframes. The graph below simulates the SNR
       under different amounts of light pollution, ranging from 10% of your
       provided Skyglow to 200%.
     </p>
+    <div id="Skyglow_plot" class="h-[200px] md:h-[300px]"></div>
   </div>
-  <div id="Skyglow_plot" class="h-[200px] md:h-[300px]"></div>
 </div>

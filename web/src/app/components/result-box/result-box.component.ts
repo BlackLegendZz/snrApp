@@ -11,8 +11,11 @@ import { CommonModule } from '@angular/common';
 })
 export class ResultBoxComponent {
   layout: Partial<Plotly.Layout> = {
-    paper_bgcolor: '#cbd5e1',
-    plot_bgcolor: '#cbd5e1',
+    paper_bgcolor: '#0000',
+    plot_bgcolor: '#0000',
+    font: {
+      color: '#fff',
+    },
     margin: {
       l: 50,
       r: 10,
@@ -23,7 +26,7 @@ export class ResultBoxComponent {
       orientation: 'h',
     },
   };
-  resultSNR: number = 0;
+  resultSNR: number = 1;
   constructor(private eventService: EventService) {
     eventService.listen(EventID.DrawGraph, (data: any) => this.drawPlots(data));
   }

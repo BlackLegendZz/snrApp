@@ -5,15 +5,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        light: "#FFFFFF",
-        "light-2": "#E7ECF5",
-        "btn-active-light": "#76A5D0",
-        "btn-active-dark": "#44729B",
-        "btn-active-text-light": "#FFFFFF",
-        "btn-active-text-dark": "#FFFFFF",
-
-        "btn-hover-light": "#468AC6",
-        "btn-hover-dark": "#27537C",
+        dark1: "hsl(0, 0%, 13%)",
+        dark2: "hsl(232, 11%, 27%)",
+        "button-normal": "hsl(211, 34%, 45%)",
+        "button-clicked": "hsl(211, 44%, 56%)",
       },
     },
   },
