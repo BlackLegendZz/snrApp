@@ -4,13 +4,6 @@ import { InputFieldComponent } from '../input-field/input-field.component';
 import { NetworkService } from '../../services/network.service';
 import { EventService, EventID } from '../../services/event.service';
 
-export enum FrameBox {
-  LightFrame = 'Light Frame',
-  DarkFrame = 'Dark Frame',
-  BiasFrame = 'Bias Frame',
-  Camera = 'Camera',
-}
-
 @Component({
   selector: 'app-frame-box',
   standalone: true,
