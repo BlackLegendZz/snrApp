@@ -26,7 +26,7 @@ export class ResultBoxComponent {
       orientation: 'h',
     },
   };
-  resultSNR: number = 1;
+  resultSNR: number = 0;
   constructor(private eventService: EventService) {
     eventService.listen(EventID.DrawGraph, (data: any) => this.drawPlots(data));
   }
