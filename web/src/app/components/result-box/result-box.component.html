@@ -1,5 +1,5 @@
-<div>
-  <div *ngIf="resultSNR != 0" class="px-2 pb-2 bg-dark2 rounded-lg mb-2">
+<div [ngClass]="{ collapse: resultSNR === 0 }">
+  <div class="px-2 pb-2 bg-dark2 rounded-lg mb-2">
     <h4 class="text-2xl font-normal">Result</h4>
     <p class="mb-3">
       The SNR of your image is {{ resultSNR }}! In the plot below you will see
@@ -8,7 +8,7 @@
     <div id="Stacking_plot" class="h-[200px] md:h-[300px] mb-4"></div>
   </div>
 
-  <div *ngIf="resultSNR != 0" class="px-2 pb-2 bg-dark2 rounded-lg mb-2">
+  <div class="px-2 pb-2 bg-dark2 rounded-lg mb-2">
     <h4 class="text-2xl font-normal">Skyglow effect</h4>
     <p class="mb-3">
       The skyglow effect refers to the impact of light pollution on your
